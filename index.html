@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jaish Dahiya — Data Science Student, Aspiring Data Analyst and Python Developer. Skilled in SQL, Power BI, Machine Learning, and AI. Open to hire.">
+<meta name="keywords" content="Jaish Dahiya, Data Science, Data Analyst, Python Developer, Power BI, SQL, Machine Learning, AI, MD University">
+<meta name="author" content="Jaish Dahiya">
+<meta property="og:title" content="Jaish Dahiya | Data Science & Analytics">
+<meta property="og:description" content="Aspiring Data Analyst · Open to Internships & Fresher Roles">
+<meta property="og:type" content="website">
+<title>Jaish Dahiya | Data Science & Analytics</title>
+<style>
+/* ===== ROOT TOKENS ===== */
+:root {
+  --bg: #0b0e1a;
+  --bg2: #10152a;
+  --bg3: #161d30;
+  --card: #131929;
+  --border: #222d48;
+  --accent: #6c63ff;
+  --accent2: #00d4aa;
+  --accent3: #ff6b6b;
+  --text: #e8eaf6;
+  --text2: #8892b0;
+  --text3: #4a5578;
+  --green: #00d4aa;
+  --yellow: #ffd166;
+  --blue: #4fc3f7;
+  --purple: #ce93d8;
+  --radius: 14px;
+  --shadow: 0 8px 40px rgba(0,0,0,.55);
+  --glow: 0 0 40px rgba(108,99,255,.18);
+  --tr: 0.25s ease;
+}
+[data-theme="light"] {
+  --bg: #f0f2f8; --bg2: #e4e8f4; --bg3: #d8ddf0;
+  --card: #ffffff; --border: #c8cfe8;
+  --text: #1a1f3a; --text2: #4a5280; --text3: #8a93b2;
+  --shadow: 0 8px 32px rgba(100,120,200,.15);
+  --glow: 0 0 30px rgba(108,99,255,.1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6;transition:background var(--tr),color var(--tr);overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* ===== NAV ===== */
+nav{background:rgba(11,14,26,.85);border-bottom:1px solid var(--border);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:62px;position:sticky;top:0;z-index:200;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;color:var(--text);text-decoration:none;letter-spacing:-.01em}
+.logo-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;box-shadow:0 0 16px rgba(108,99,255,.4)}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a,.nav-links button.nav-tool-btn{color:var(--text2);text-decoration:none;font-size:.84rem;font-weight:500;padding:6px 12px;border-radius:8px;transition:all var(--tr);background:none;border:none;cursor:pointer}
+.nav-links a:hover,.nav-links button.nav-tool-btn:hover{color:var(--text);background:var(--bg3)}
+.nav-links a.active,.nav-links button.nav-tool-btn.active{color:var(--accent);background:rgba(108,99,255,.1)}
+.nav-tool-btn-wrap{margin-left:6px}
+.nav-tool-pill{background:linear-gradient(90deg,rgba(108,99,255,.15),rgba(0,212,170,.1));border:1px solid rgba(108,99,255,.3);color:var(--accent);font-size:.78rem;font-weight:700;padding:5px 13px;border-radius:20px;cursor:pointer;transition:all var(--tr);display:flex;align-items:center;gap:5px}
+.nav-tool-pill:hover{background:linear-gradient(90deg,rgba(108,99,255,.3),rgba(0,212,170,.2));box-shadow:0 0 16px rgba(108,99,255,.3)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.theme-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:5px 11px;border-radius:18px;cursor:pointer;font-size:.78rem;transition:all var(--tr)}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+.hamburger{display:none;background:none;border:1px solid var(--border);color:var(--text2);padding:5px 9px;border-radius:7px;cursor:pointer;font-size:1rem}
+.mobile-nav{display:none;flex-direction:column;background:var(--bg2);border-bottom:1px solid var(--border);padding:10px 14px;gap:3px;position:sticky;top:62px;z-index:199}
+.mobile-nav.open{display:flex}
+.mobile-nav a,.mobile-nav button{color:var(--text2);text-decoration:none;font-size:.88rem;padding:8px 12px;border-radius:8px;background:none;border:none;cursor:pointer;text-align:left;width:100%}
+.mobile-nav a:hover,.mobile-nav button:hover{background:var(--bg3);color:var(--text)}
+
+/* ===== PAGE SWITCHER ===== */
+#portfolio-page{display:block}
+#tools-page{display:none}
+
+/* ===== AVAILABILITY BANNER ===== */
+.hire-banner{background:linear-gradient(90deg,rgba(0,212,170,.08),rgba(108,99,255,.08));border-top:1px solid rgba(0,212,170,.2);border-bottom:1px solid rgba(108,99,255,.15);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:.82rem}
+.hire-dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,212,170,.5)}50%{box-shadow:0 0 0 6px rgba(0,212,170,0)}}
+.hire-text{color:var(--text2)}
+.hire-text strong{color:var(--accent2)}
+.hire-link{color:var(--accent);font-weight:600;text-decoration:none;font-size:.8rem;border:1px solid rgba(108,99,255,.3);padding:3px 10px;border-radius:12px;transition:all var(--tr)}
+.hire-link:hover{background:rgba(108,99,255,.15);border-color:var(--accent)}
+
+/* ===== HERO ===== */
+.hero-wrap{position:relative;overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(108,99,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(108,99,255,.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+.hero-glow-l{position:absolute;top:-60px;left:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(108,99,255,.14) 0%,transparent 70%);pointer-events:none;z-index:0}
+.hero-glow-r{position:absolute;top:0;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(0,212,170,.1) 0%,transparent 70%);pointer-events:none;z-index:0}
+.hero{position:relative;z-index:1;padding:80px 20px 68px;text-align:center;max-width:800px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.25);color:var(--accent2);padding:5px 15px;border-radius:20px;font-size:.77rem;font-weight:700;letter-spacing:.05em;margin-bottom:24px}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);animation:pulse 2s infinite}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.4rem);font-weight:800;line-height:1.12;margin-bottom:10px;color:var(--text);letter-spacing:-.02em}
+.hero-name-gradient{background:linear-gradient(120deg,var(--accent) 0%,var(--accent2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-role{font-size:clamp(1rem,2.5vw,1.15rem);color:var(--text2);margin-bottom:6px;font-weight:500}
+.hero-sub{font-size:.95rem;color:var(--text3);max-width:520px;margin:0 auto 32px;line-height:1.75}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.hero-tags{display:flex;gap:7px;justify-content:center;flex-wrap:wrap}
+.hero-tag{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text3);padding:4px 13px;border-radius:20px;font-size:.77rem;transition:all var(--tr)}
+.hero-tag:hover{border-color:var(--accent2);color:var(--accent2)}
+
+/* ===== CONTAINER & SECTIONS ===== */
+.container{max-width:1060px;margin:0 auto;padding:0 24px}
+section{padding:64px 0}
+.sec-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;display:flex;align-items:center;gap:8px}
+.sec-eyebrow::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(108,99,255,.3),transparent)}
+.sec-title{font-size:1.65rem;font-weight:800;color:var(--text);margin-bottom:5px;letter-spacing:-.02em}
+.sec-sub{font-size:.88rem;color:var(--text2);margin-bottom:36px}
+.sec-divider{height:1px;background:linear-gradient(90deg,var(--border),transparent);margin:0 0 36px}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:3fr 2fr;gap:28px;align-items:start}
+.about-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.about-text p{color:var(--text2);font-size:.92rem;line-height:1.85;margin-bottom:16px}
+.about-text p:last-child{margin-bottom:0}
+.about-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat-box{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;transition:border-color var(--tr),box-shadow var(--tr)}
+.stat-box:hover{border-color:var(--accent);box-shadow:var(--glow)}
+.stat-num{font-size:1.85rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+.stat-lbl{font-size:.73rem;color:var(--text3);margin-top:3px}
+.avail-card{background:linear-gradient(135deg,rgba(0,212,170,.07),rgba(108,99,255,.05));border:1px solid rgba(0,212,170,.2);border-radius:12px;padding:18px 20px;margin-top:10px}
+.avail-head{font-size:.8rem;font-weight:700;color:var(--accent2);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.avail-pill{display:inline-block;background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.25);color:var(--accent2);padding:3px 11px;border-radius:20px;font-size:.76rem;font-weight:600;margin:3px 3px 0 0}
+
+/* ===== SKILLS ===== */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:12px}
+.skill-card{background:var(--bg3);border:1px solid var(--border);border-radius:11px;padding:15px 17px;display:flex;align-items:center;gap:12px;transition:border-color var(--tr),transform var(--tr),box-shadow var(--tr)}
+.skill-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(108,99,255,.15)}
+.sk-icon{font-size:1.35rem;flex-shrink:0}
+.sk-name{font-size:.87rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.sk-sub{font-size:.72rem;color:var(--text3)}
+.sk-bar-wrap{width:100%;height:3px;background:var(--bg2);border-radius:2px;margin-top:7px;overflow:hidden}
+.sk-bar{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+
+/* ===== PROJECT ===== */
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:box-shadow var(--tr)}
+.project-card:hover{box-shadow:0 12px 50px rgba(108,99,255,.2)}
+.project-header{background:linear-gradient(135deg,rgba(108,99,255,.12),rgba(0,212,170,.06));border-bottom:1px solid var(--border);padding:26px 28px}
+.proj-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:13px}
+.proj-title{font-size:1.3rem;font-weight:800;color:var(--text);margin-bottom:5px;letter-spacing:-.01em}
+.proj-tagline{font-size:.87rem;color:var(--text2)}
+.project-body{padding:26px 28px}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.proj-sec-label{font-size:.71rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.proj-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.proj-list li{font-size:.86rem;color:var(--text2);padding-left:16px;position:relative;line-height:1.55}
+.proj-list li::before{content:'▸';position:absolute;left:0;color:var(--accent2);font-size:.78rem;top:2px}
+.tech-cluster{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.outcome-box{background:rgba(0,212,170,.06);border:1px solid rgba(0,212,170,.15);border-radius:10px;padding:14px 16px;margin-top:4px}
+.outcome-box .proj-list li::before{color:var(--green)}
+
+/* ===== EDUCATION / TIMELINE ===== */
+.timeline{display:flex;flex-direction:column;gap:14px}
+.tl-item{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px 22px;display:flex;gap:16px;align-items:flex-start;transition:border-color var(--tr)}
+.tl-item:hover{border-color:var(--accent)}
+.tl-dot{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.dot-v{background:rgba(108,99,255,.12);border:1px solid rgba(108,99,255,.25)}
+.dot-g{background:rgba(0,212,170,.12);border:1px solid rgba(0,212,170,.25)}
+.tl-title{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:2px}
+.tl-org{font-size:.84rem;color:var(--accent2);font-weight:600;margin-bottom:3px}
+.tl-date{font-size:.75rem;color:var(--text3)}
+.tl-desc{font-size:.83rem;color:var(--text2);margin-top:7px;line-height:1.65}
+
+/* ===== CERTIFICATIONS ===== */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.cert-card{background:var(--bg3);border:1px solid var(--border);border-radius:11px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;transition:border-color var(--tr),transform var(--tr)}
+.cert-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.cert-icon{font-size:1.4rem;flex-shrink:0;margin-top:1px}
+.cert-name{font-size:.87rem;font-weight:600;color:var(--text);margin-bottom:3px}
+.cert-issuer{font-size:.76rem;color:var(--text3)}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-link{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px 22px;display:flex;align-items:center;gap:15px;text-decoration:none;color:var(--text);transition:border-color var(--tr),transform var(--tr),box-shadow var(--tr)}
+.contact-link:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(108,99,255,.15)}
+.cl-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.cl-email{background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.2)}
+.cl-linkedin{background:rgba(79,195,247,.1);border:1px solid rgba(79,195,247,.2)}
+.cl-lbl{font-size:.73rem;color:var(--text3);margin-bottom:2px}
+.cl-val{font-size:.88rem;font-weight:600;color:var(--text)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:26px 20px;text-align:center}
+footer p{font-size:.78rem;color:var(--text3)}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;border:none;border-radius:9px;cursor:pointer;font-size:.88rem;font-weight:600;transition:all var(--tr);text-decoration:none;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#8b5cf6);color:#fff;box-shadow:0 4px 18px rgba(108,99,255,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(108,99,255,.45)}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text2)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-success{background:linear-gradient(135deg,var(--green),#00b894);color:#fff}
+.btn-success:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,212,170,.3)}
+.btn-secondary{background:var(--bg3);border:1px solid var(--border);color:var(--text2)}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sm{padding:7px 14px;font-size:.8rem}
+
+/* ===== TAGS ===== */
+.tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.74rem;font-weight:600}
+.tag-purple{background:rgba(108,99,255,.12);color:var(--accent);border:1px solid rgba(108,99,255,.25)}
+.tag-green{background:rgba(0,212,170,.12);color:var(--green);border:1px solid rgba(0,212,170,.25)}
+.tag-blue{background:rgba(79,195,247,.12);color:var(--blue);border:1px solid rgba(79,195,247,.25)}
+.tag-yellow{background:rgba(255,209,102,.12);color:var(--yellow);border:1px solid rgba(255,209,102,.25)}
+.tag-red{background:rgba(255,107,107,.12);color:var(--accent3);border:1px solid rgba(255,107,107,.25)}
+
+/* ===== AI TOOLS PAGE ===== */
+.tools-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:52px}
+.tools-tabs{display:flex;gap:2px}
+.ttab{padding:14px 18px;border:none;background:none;color:var(--text2);cursor:pointer;font-size:.87rem;font-weight:500;border-bottom:2px solid transparent;transition:all var(--tr);white-space:nowrap}
+.ttab:hover{color:var(--text)}
+.ttab.active{color:var(--accent);border-bottom-color:var(--accent)}
+main.tools-main{max-width:1200px;margin:0 auto;padding:24px 20px}
+.tpage{display:none}
+.tpage.active{display:block}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.card-title{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media(max-width:768px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.score-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;position:relative;overflow:hidden}
+.score-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent-c,var(--accent))}
+.score-num{font-size:2.2rem;font-weight:800;line-height:1;margin:7px 0}
+.score-label{font-size:.74rem;color:var(--text2);text-transform:uppercase;letter-spacing:.06em}
+.score-sub{font-size:.79rem;color:var(--text3);margin-top:3px}
+textarea{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--text);padding:13px;font-size:.86rem;line-height:1.7;resize:vertical;transition:border-color var(--tr);font-family:inherit}
+textarea:focus{outline:none;border-color:var(--accent)}
+textarea::placeholder{color:var(--text3)}
+select{background:var(--bg3);border:1px solid var(--border);border-radius:9px;color:var(--text);padding:10px 13px;font-size:.86rem;cursor:pointer;width:100%;transition:border-color var(--tr)}
+select:focus{outline:none;border-color:var(--accent)}
+.form-group{margin-bottom:14px}
+.form-label{display:block;font-size:.78rem;font-weight:600;color:var(--text2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.alert{padding:11px 15px;border-radius:9px;font-size:.84rem;margin-bottom:10px;border-left:3px solid}
+.alert-info{background:rgba(79,195,247,.08);border-color:var(--blue);color:var(--blue)}
+.alert-warn{background:rgba(255,209,102,.08);border-color:var(--yellow);color:var(--yellow)}
+.alert-error{background:rgba(255,107,107,.08);border-color:var(--accent3);color:var(--accent3)}
+.alert-success{background:rgba(0,212,170,.08);border-color:var(--green);color:var(--green)}
+.email-output{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:18px;font-size:.88rem;line-height:1.8;white-space:pre-wrap;min-height:180px;color:var(--text)}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:20px;font-size:.71rem;font-weight:700}
+.badge-accent{background:rgba(108,99,255,.15);color:var(--accent);border:1px solid rgba(108,99,255,.25)}
+.feedback-item{padding:9px 13px;border-radius:8px;margin-bottom:7px;display:flex;align-items:flex-start;gap:9px;font-size:.83rem}
+.feedback-icon{font-size:.95rem;flex-shrink:0;margin-top:1px}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.diversity-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.diversity-label{font-size:.78rem;color:var(--text2);width:136px;flex-shrink:0}
+.diversity-bar{flex:1;height:9px;background:var(--bg3);border-radius:5px;overflow:hidden}
+.diversity-fill{height:100%;border-radius:5px;transition:width 1s ease}
+.diversity-num{font-size:.8rem;font-weight:700;width:32px;text-align:right;flex-shrink:0}
+.style-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:20px;font-size:.78rem;font-weight:600}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:8px}
+.section-title-t{font-size:1.25rem;font-weight:700;color:var(--text)}
+.section-desc-t{font-size:.83rem;color:var(--text2);margin-top:2px}
+.stat-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border)}
+.stat-row:last-child{border-bottom:none}
+.stat-name{font-size:.83rem;color:var(--text2)}
+.stat-value{font-size:.87rem;font-weight:700;color:var(--text)}
+.copy-note{position:fixed;bottom:24px;right:24px;background:var(--green);color:#fff;padding:10px 16px;border-radius:9px;font-size:.83rem;font-weight:600;z-index:999;animation:slideUp .3s ease,fadeOut .3s ease 1.8s forwards}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fadeOut{to{opacity:0;pointer-events:none}}
+.conflict-banner{background:rgba(255,107,107,.08);border:1px solid var(--accent3);border-radius:9px;padding:9px 13px;display:flex;align-items:center;gap:7px;font-size:.82rem;color:var(--accent3);margin-bottom:10px}
+.divider{height:1px;background:var(--border);margin:16px 0}
+.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}
+.flex{display:flex}.gap-8{gap:8px}.gap-12{gap:12px}.items-center{align-items:center}
+.justify-between{justify-content:space-between}.flex-wrap{flex-wrap:wrap}
+.text-sm{font-size:.82rem}.text-muted{color:var(--text2)}.font-bold{font-weight:700}.w-full{width:100%}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .nav-links,.nav-tool-btn-wrap{display:none}
+  .hamburger{display:flex}
+  .about-grid,.proj-grid,.contact-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .about-stat-grid{grid-template-columns:1fr 1fr}
+  .hero{padding:52px 16px 48px}
+  section{padding:48px 0}
+  .project-body,.project-header{padding:18px 20px}
+}
+@media(max-width:480px){
+  .skills-grid,.certs-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a class="nav-logo" href="#home">
+    <div class="logo-icon">✦</div>
+    Jaish Dahiya
+  </a>
+  <div class="nav-links">
+    <a href="#about" onclick="showPortfolio()">About</a>
+    <a href="#skills" onclick="showPortfolio()">Skills</a>
+    <a href="#projects" onclick="showPortfolio()">Projects</a>
+    <a href="#education" onclick="showPortfolio()">Education</a>
+    <a href="#certifications" onclick="showPortfolio()">Certifications</a>
+    <a href="#contact" onclick="showPortfolio()">Contact</a>
+    <div class="nav-tool-btn-wrap">
+      <button class="nav-tool-pill" onclick="showTools()">⚡ AI Tools</button>
+    </div>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" onclick="toggleTheme()">☀️ Light</button>
+    <button class="hamburger" onclick="toggleMob()">☰</button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobNav">
+  <a href="#about" onclick="showPortfolio();closeMob()">About</a>
+  <a href="#skills" onclick="showPortfolio();closeMob()">Skills</a>
+  <a href="#projects" onclick="showPortfolio();closeMob()">Projects</a>
+  <a href="#education" onclick="showPortfolio();closeMob()">Education</a>
+  <a href="#certifications" onclick="showPortfolio();closeMob()">Certifications</a>
+  <a href="#contact" onclick="showPortfolio();closeMob()">Contact</a>
+  <button onclick="showTools();closeMob()" style="color:var(--accent);font-weight:600">⚡ AI Tools</button>
+</div>
+
+<!-- ===================== PORTFOLIO PAGE ===================== -->
+<div id="portfolio-page">
+
+  <!-- AVAILABILITY BANNER -->
+  <div class="hire-banner">
+    <div class="hire-dot"></div>
+    <span class="hire-text"><strong>Available Now</strong> — Open to Data Science, Analytics &amp; AI/ML Internships and Fresher Roles</span>
+    <a href="#contact" class="hire-link">Hire Me →</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-wrap">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow-l"></div>
+    <div class="hero-glow-r"></div>
+    <div class="hero">
+      <div class="hero-badge"><span class="hero-badge-dot"></span> Data Science Student · Class of 2028</div>
+      <h1><span class="hero-name-gradient">Jaish Dahiya</span></h1>
+      <div class="hero-role">Data Science &amp; Analytics · Python Developer · ML Enthusiast</div>
+      <p class="hero-sub">Transforming raw data into decisions that matter. Skilled in SQL, Power BI, Python, Machine Learning, and AI.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View My Project →</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        <button class="btn btn-outline" onclick="showTools()">⚡ AI Resume &amp; Email Tools</button>
+      </div>
+      <div class="hero-tags">
+        <span class="hero-tag">Python</span>
+        <span class="hero-tag">SQL</span>
+        <span class="hero-tag">Power BI</span>
+        <span class="hero-tag">Machine Learning</span>
+        <span class="hero-tag">AI</span>
+        <span class="hero-tag">Advanced Excel</span>
+        <span class="hero-tag">MongoDB</span>
+        <span class="hero-tag">Statistics</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="sec-eyebrow">About Me</div>
+      <div class="sec-title">Who I Am</div>
+      <div class="sec-divider"></div>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-text">
+            <p>I'm a Data Science student at MD University (2025–2028) simultaneously undergoing professional industry training at Ducat India. I combine academic foundations with project-driven learning to build solutions that solve real business problems with data.</p>
+            <p>My core interest lies in the full analytics pipeline — extracting data with SQL, transforming it with Python, modeling with Machine Learning, and communicating insights through interactive Power BI dashboards. I care as much about the "so what" as the technical execution.</p>
+            <p>I am actively looking for internship and fresher opportunities in Data Science, Data Analytics, Business Analytics, and AI/ML where I can deliver value immediately and grow fast.</p>
+          </div>
+        </div>
+        <div>
+          <div class="about-stat-grid">
+            <div class="stat-box">
+              <div class="stat-num">1+</div>
+              <div class="stat-lbl">Live Projects</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">3</div>
+              <div class="stat-lbl">Certifications</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">9+</div>
+              <div class="stat-lbl">Tech Skills</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">2025</div>
+              <div class="stat-lbl">Training Year</div>
+            </div>
+          </div>
+          <div class="avail-card">
+            <div class="avail-head">🟢 Open to Hire</div>
+            <div>
+              <span class="avail-pill">Data Science Intern</span>
+              <span class="avail-pill">Data Analyst</span>
+              <span class="avail-pill">Business Analyst</span>
+              <span class="avail-pill">ML Engineer</span>
+              <span class="avail-pill">AI Roles</span>
+              <span class="avail-pill">Fresher Roles</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="padding-top:0">
+    <div class="container">
+      <div class="sec-eyebrow">Technical Skills</div>
+      <div class="sec-title">What I Work With</div>
+      <div class="sec-sub">Core tools and technologies across the data pipeline</div>
+      <div class="skills-grid" id="skillsGrid">
+        <div class="skill-card"><div class="sk-icon">🐍</div><div class="sk-info"><div class="sk-name">Python</div><div class="sk-sub">Analysis · Automation · ML</div><div class="sk-bar-wrap"><div class="sk-bar" style="width:0" data-w="82%"></div></div></div></div>
+        <div class="skill-card"><div class="sk-icon">🗄️</div><div class="sk-info"><div class="sk-name">SQL</div><div class="sk-sub">Queries · Joins · Extraction</div><div class="sk-bar-wrap"><div class="sk-bar" style="width:0" data-w="80%"></div></div></div></div>
+        <div class="skill-card"><div class="sk-icon">📊</div><div class="sk-info"><div class="sk-name">Power BI</div><div class="sk-sub">Dashboards · DAX · Reports</div><div class="sk-bar-wrap"><div class="sk-bar" style="width:0" data-w="78%"></div></div></div></div>
+        <div class="skill-card"><div class="sk-icon">🤖</div><div class="sk-info"><div class="sk-name">Machine Learning</div><div class="sk-sub">Supervised · Unsupervised</div><div class="sk-bar-wrap"><div class="sk-bar" style="width:0" data-w="70%"></div></div></div></div>
+        <div class="skill-card"><div class="sk-icon">🧠</div><div class="sk-info"><div class="sk-name">Artificial Intelligence</div><div class="sk-sub">Fundamentals · Applied AI</div><div class="sk-bar-wrap"><div class="sk-bar" style="width:0" data-w="68%"></div></div></div></div>
+        <div class="skill-card"><div class="sk-icon">📋</div><div class="sk-info"><div class="sk-name">Advanced Excel</div><div class="sk-sub">Pivots · VLOOKUP · Charts</div><div class="sk-bar-wrap"><div class="sk-bar" style="width:0" data-w="84%"></div></div></div></div>
+        <div class="skill-card"><div class="sk-icon">🍃</div><div class="sk-info"><div class="sk-name">MongoDB</div><div class="sk-sub">NoSQL · Data Storage</div><div class="sk-bar-wrap"><div class="sk-bar" style="width:0" data-w="62%"></div></div></div></div>
+        <div class="skill-card"><div class="sk-icon">📈</div><div class="sk-info"><div class="sk-name">Statistics</div><div class="sk-sub">Descriptive · Inferential</div><div class="sk-bar-wrap"><div class="sk-bar" style="width:0" data-w="74%"></div></div></div></div>
+        <div class="skill-card"><div class="sk-icon">🔍</div><div class="sk-info"><div class="sk-name">Data Visualization</div><div class="sk-sub">Charts · Storytelling</div><div class="sk-bar-wrap"><div class="sk-bar" style="width:0" data-w="78%"></div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" style="padding-top:0">
+    <div class="container">
+      <div class="sec-eyebrow">Projects</div>
+      <div class="sec-title">Featured Work</div>
+      <div class="sec-sub">End-to-end data projects — real data, real insights, real business value</div>
+      <div class="project-card">
+        <div class="project-header">
+          <div class="proj-tags">
+            <span class="tag tag-purple">Power BI</span>
+            <span class="tag tag-blue">SQL</span>
+            <span class="tag tag-green">EDA</span>
+            <span class="tag tag-yellow">Business Intelligence</span>
+            <span class="tag tag-red">Python</span>
+          </div>
+          <div class="proj-title">📊 Sales Performance Dashboard</div>
+          <div class="proj-tagline">End-to-end BI solution — from raw SQL extraction to executive-level interactive reporting</div>
+        </div>
+        <div class="project-body">
+          <div class="proj-grid">
+            <div>
+              <div class="proj-sec-label">What I Built</div>
+              <ul class="proj-list">
+                <li>Developed a fully interactive Power BI dashboard monitoring sales KPIs across regions, products, and time periods</li>
+                <li>Wrote optimized SQL queries for data extraction, transformation, and cleaning from relational databases</li>
+                <li>Conducted exploratory data analysis (EDA) to surface hidden patterns, outliers, and correlations</li>
+                <li>Identified seasonal sales trends and underperforming segments with actionable insights</li>
+                <li>Delivered business-ready visualizations enabling data-driven decisions for stakeholders</li>
+              </ul>
+            </div>
+            <div>
+              <div class="proj-sec-label">Technologies Used</div>
+              <div class="tech-cluster">
+                <span class="tag tag-purple">Power BI</span>
+                <span class="tag tag-blue">SQL</span>
+                <span class="tag tag-green">Python</span>
+                <span class="tag tag-yellow">Excel</span>
+                <span class="tag tag-red">EDA</span>
+              </div>
+              <div class="proj-sec-label">Key Outcomes</div>
+              <div class="outcome-box">
+                <ul class="proj-list">
+                  <li>Visual identification of top-performing products and regions</li>
+                  <li>Automated reporting replacing manual Excel processes</li>
+                  <li>Actionable trend insights ready for stakeholder presentation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & TRAINING -->
+  <section id="education" style="padding-top:0">
+    <div class="container">
+      <div class="sec-eyebrow">Education &amp; Training</div>
+      <div class="sec-title">Academic Background</div>
+      <div class="sec-divider"></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot dot-v">🎓</div>
+          <div>
+            <div class="tl-title">Bachelor of Science (B.Sc.)</div>
+            <div class="tl-org">MD University</div>
+            <div class="tl-date">2025 – 2028 &nbsp;·&nbsp; Currently Enrolled</div>
+            <div class="tl-desc">Pursuing a three-year undergraduate degree with focus on Mathematics, Statistics, and Computer Science — building the quantitative foundation for a data-driven career.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot dot-g">🏫</div>
+          <div>
+            <div class="tl-title">Data Science Training</div>
+            <div class="tl-org">Ducat India</div>
+            <div class="tl-date">2025 – 2026 &nbsp;·&nbsp; Professional Training Program</div>
+            <div class="tl-desc">Industry-focused training covering Python, SQL, Machine Learning, Power BI, Data Analysis, and AI — with hands-on projects using real-world datasets.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" style="padding-top:0">
+    <div class="container">
+      <div class="sec-eyebrow">Certifications</div>
+      <div class="sec-title">Credentials</div>
+      <div class="sec-divider"></div>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-icon">🏅</div>
+          <div><div class="cert-name">Artificial Intelligence Fundamentals</div><div class="cert-issuer">IBM</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">📋</div>
+          <div><div class="cert-name">Introduction to Excel</div><div class="cert-issuer">Certification Course</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🔬</div>
+          <div><div class="cert-name">Introduction to Data Science</div><div class="cert-issuer">Certification Course</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="padding-top:0;padding-bottom:72px">
+    <div class="container">
+      <div class="sec-eyebrow">Contact</div>
+      <div class="sec-title">Let's Connect</div>
+      <div class="sec-sub">Open to internships, fresher roles, and collaborations in Data Science, Analytics &amp; AI</div>
+      <div class="contact-grid">
+        <a href="mailto:jaishdahiya2@gmail.com" class="contact-link">
+          <div class="cl-icon cl-email">📧</div>
+          <div><div class="cl-lbl">Email</div><div class="cl-val">jaishdahiya2@gmail.com</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/jaish-dahiya-5a9753395" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <div class="cl-icon cl-linkedin">💼</div>
+          <div><div class="cl-lbl">LinkedIn</div><div class="cl-val">linkedin.com/in/jaish-dahiya</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Jaish Dahiya &nbsp;·&nbsp; Data Science Student &nbsp;·&nbsp; Open to Hire &nbsp;·&nbsp; <a href="mailto:jaishdahiya2@gmail.com" style="color:var(--accent);text-decoration:none">jaishdahiya2@gmail.com</a></p>
+  </footer>
+
+</div><!-- end portfolio-page -->
+
+<!-- ===================== AI TOOLS PAGE ===================== -->
+<div id="tools-page">
+  <div class="tools-header">
+    <div class="tools-tabs">
+      <button class="ttab active" onclick="switchTTab('checker')">📋 Resume Checker</button>
+      <button class="ttab" onclick="switchTTab('email')">✉️ Email Generator</button>
+      <button class="ttab" onclick="switchTTab('dashboard')">📊 Dashboard</button>
+    </div>
+    <button class="btn btn-secondary btn-sm" onclick="showPortfolio()">← Back to Portfolio</button>
+  </div>
+
+  <main class="tools-main">
+
+    <!-- RESUME CHECKER -->
+    <div id="tpage-checker" class="tpage active">
+      <div class="section-header mt-12">
+        <div>
+          <div class="section-title-t">Resume Checker</div>
+          <div class="section-desc-t">ATS analysis · Grammar · Professionalism · Actionable feedback</div>
+        </div>
+      </div>
+      <div class="grid-2" style="gap:22px">
+        <div>
+          <div class="card">
+            <div class="card-title">📄 Upload or Paste Resume</div>
+            <div style="display:flex;gap:0;margin-bottom:13px;border:1px solid var(--border);border-radius:9px;overflow:hidden">
+              <button id="tabUpload" onclick="switchInputTab('upload')" style="flex:1;padding:8px;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .2s">📁 Upload PDF</button>
+              <button id="tabPaste" onclick="switchInputTab('paste')" style="flex:1;padding:8px;background:transparent;color:var(--text2);border:none;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .2s">✏️ Paste Text</button>
+            </div>
+            <div id="pdfPanel">
+              <div id="pdfDropZone" onclick="document.getElementById('pdfFileInput').click()" ondragover="event.preventDefault();this.style.borderColor='var(--accent)'" ondragleave="this.style.borderColor='var(--border)'" ondrop="handleDrop(event)" style="border:2px dashed var(--border);border-radius:12px;padding:32px 18px;text-align:center;cursor:pointer;transition:border-color .2s;margin-bottom:10px">
+                <div style="font-size:2.2rem;margin-bottom:7px">📂</div>
+                <div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:3px">Drop PDF here or click to browse</div>
+                <div style="font-size:.76rem;color:var(--text3)">Supports PDF resume files · Max 10 MB</div>
+                <input type="file" id="pdfFileInput" accept=".pdf" style="display:none" onchange="handlePdfFile(this.files[0])">
+              </div>
+              <div id="pdfStatus" style="display:none;padding:9px 13px;border-radius:8px;font-size:.82rem;margin-bottom:10px"></div>
+            </div>
+            <div id="pastePanel" style="display:none">
+              <div class="form-group">
+                <textarea id="resumeInput" rows="13" placeholder="Paste your full resume here...&#10;&#10;Include: Contact Info, Summary, Skills, Experience, Education, Projects, Certifications"></textarea>
+              </div>
+            </div>
+            <div style="display:flex;gap:9px;flex-wrap:wrap">
+              <button class="btn btn-primary" onclick="analyzeResume()">
+                <span id="analyzeSpinner" style="display:none" class="spinner"></span>
+                <span id="analyzeLabel">✦ Analyze Resume</span>
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="loadSample()">Load Sample</button>
+              <button class="btn btn-secondary btn-sm" onclick="clearResume()">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="resultsPanel" style="display:none">
+          <div class="card" style="margin-bottom:14px">
+            <div class="card-title">🎯 Overall Scores</div>
+            <div class="grid-2" style="gap:10px">
+              <div class="score-card" style="--accent-c:var(--accent)"><div class="score-label">Overall</div><div class="score-num" id="scoreOverall">—</div><div class="score-sub" id="gradeOverall"></div></div>
+              <div class="score-card" style="--accent-c:var(--green)"><div class="score-label">ATS Score</div><div class="score-num" id="scoreAts">—</div><div class="score-sub" id="gradeAts"></div></div>
+              <div class="score-card" style="--accent-c:var(--blue)"><div class="score-label">Grammar</div><div class="score-num" id="scoreGrammar">—</div><div class="score-sub" id="gradeGrammar"></div></div>
+              <div class="score-card" style="--accent-c:var(--purple)"><div class="score-label">Professional</div><div class="score-num" id="scorePro">—</div><div class="score-sub" id="gradePro"></div></div>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:14px"><div class="card-title">📊 Detailed Breakdown</div><div id="progressBars"></div></div>
+          <div class="card" style="margin-bottom:14px"><div class="card-title">💡 Feedback &amp; Suggestions</div><div id="feedbackList"></div></div>
+          <div class="card" style="margin-bottom:14px"><div class="card-title">🔍 Extracted Profile</div><div id="extractedProfile"></div></div>
+          <div style="display:flex;gap:9px;flex-wrap:wrap">
+            <button class="btn btn-success" onclick="downloadReport()">⬇ Download Report</button>
+            <button class="btn btn-secondary" onclick="switchTTab('email')">→ Generate Email</button>
+          </div>
+        </div>
+
+        <div id="emptyState" class="card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;min-height:280px;text-align:center">
+          <div style="font-size:2.8rem">📋</div>
+          <div style="font-size:1rem;font-weight:600;color:var(--text)">Ready to analyze</div>
+          <div class="text-sm text-muted">Paste your resume and click <strong>Analyze Resume</strong> to get<br>ATS scores, grammar feedback, and improvement tips.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMAIL GENERATOR -->
+    <div id="tpage-email" class="tpage">
+      <div class="section-header mt-12">
+        <div>
+          <div class="section-title-t">Smart Email Generator</div>
+          <div class="section-desc-t">Unique, tailored emails — never templated, never repeated</div>
+        </div>
+      </div>
+      <div class="grid-2" style="gap:22px">
+        <div>
+          <div class="card">
+            <div class="card-title">⚙️ Email Configuration</div>
+            <div class="form-group"><label class="form-label">Email Type</label>
+              <select id="emailType">
+                <option value="internship">Internship Application</option>
+                <option value="job">Job Application</option>
+                <option value="followup">Follow-Up Email</option>
+                <option value="referral">Referral Request</option>
+                <option value="thankyou">Thank-You Email</option>
+              </select></div>
+            <div class="form-group"><label class="form-label">Writing Style</label>
+              <select id="emailStyle">
+                <option value="formal">Formal Corporate</option>
+                <option value="modern">Professional Modern</option>
+                <option value="executive">Executive Premium</option>
+              </select></div>
+            <div class="form-group"><label class="form-label">Recipient Name / Company</label><textarea id="recipientInfo" rows="2" placeholder="e.g. Hiring Manager at Google, or Dr. Smith at Stanford Research Lab"></textarea></div>
+            <div class="form-group"><label class="form-label">Job Title / Role</label><textarea id="roleInfo" rows="2" placeholder="e.g. Data Science Intern, Data Analyst, ML Engineer"></textarea></div>
+            <div class="form-group"><label class="form-label">Additional Context <span class="text-muted">(optional)</span></label><textarea id="extraContext" rows="2" placeholder="Any specific skills, mutual contacts, or details to highlight..."></textarea></div>
+            <div class="form-group"><label class="form-label">Resume Text <span class="text-muted">(auto-filled if analyzed)</span></label><textarea id="emailResumeInput" rows="4" placeholder="Paste resume or analyze one in Resume Checker first..."></textarea></div>
+            <button class="btn btn-primary w-full" onclick="generateEmail()" style="margin-top:4px">
+              <span id="emailSpinner" style="display:none" class="spinner"></span>
+              <span id="emailLabel">✦ Generate Email</span>
+            </button>
+          </div>
+        </div>
+        <div>
+          <div id="emailOutput" style="display:none">
+            <div class="card" style="margin-bottom:14px">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;flex-wrap:wrap;gap:7px">
+                <div class="card-title" style="margin-bottom:0">✉️ Generated Email</div>
+                <div style="display:flex;gap:7px;flex-wrap:wrap">
+                  <button class="btn btn-secondary btn-sm" onclick="regenerateEmail()">🔄 Regenerate</button>
+                  <button class="btn btn-secondary btn-sm" onclick="copyEmail()">📋 Copy</button>
+                  <button class="btn btn-success btn-sm" onclick="downloadEmail()">⬇ Download</button>
+                </div>
+              </div>
+              <div id="conflictBanner" class="conflict-banner" style="display:none">⚠️ Style conflict detected — regenerating with distinct vocabulary...</div>
+              <div class="email-output" id="emailText"></div>
+            </div>
+            <div class="card">
+              <div class="card-title">🎨 Diversity Metrics</div>
+              <div id="diversityMetrics"></div>
+              <div class="divider"></div>
+              <div style="display:flex;gap:7px;flex-wrap:wrap"><div id="styleTag"></div><div id="typeTag"></div></div>
+            </div>
+          </div>
+          <div id="emailEmpty" class="card" style="display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;min-height:280px;text-align:center">
+            <div style="font-size:2.8rem">✉️</div>
+            <div style="font-size:1rem;font-weight:600;color:var(--text)">Ready to write</div>
+            <div class="text-sm text-muted">Configure your email settings and click<br><strong>Generate Email</strong> for a unique, personalized draft.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="tpage-dashboard" class="tpage">
+      <div class="section-header mt-12">
+        <div>
+          <div class="section-title-t">Dashboard</div>
+          <div class="section-desc-t">Session summary and analysis history</div>
+        </div>
+      </div>
+      <div class="grid-3" style="margin-bottom:18px">
+        <div class="score-card" style="--accent-c:var(--accent)"><div class="score-label">Analyses Run</div><div class="score-num" id="dash-analyses">0</div><div class="score-sub">this session</div></div>
+        <div class="score-card" style="--accent-c:var(--green)"><div class="score-label">Emails Generated</div><div class="score-num" id="dash-emails">0</div><div class="score-sub">this session</div></div>
+        <div class="score-card" style="--accent-c:var(--blue)"><div class="score-label">Best Resume Score</div><div class="score-num" id="dash-best">—</div><div class="score-sub">overall score</div></div>
+      </div>
+      <div class="grid-2">
+        <div class="card"><div class="card-title">📈 Last Resume Scores</div><div id="dash-scores"><div class="text-sm text-muted" style="padding:18px 0;text-align:center">No analysis yet. Analyze a resume first.</div></div></div>
+        <div class="card"><div class="card-title">📝 Session Log</div><div id="dash-log" style="max-height:260px;overflow-y:auto"><div class="text-sm text-muted" style="padding:18px 0;text-align:center">No activity yet.</div></div></div>
+      </div>
+    </div>
+
+  </main>
+</div><!-- end tools-page -->
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+// ===== PAGE SWITCHER =====
+function showPortfolio(){
+  document.getElementById('portfolio-page').style.display='block';
+  document.getElementById('tools-page').style.display='none';
+  window.scrollTo(0,0);
+}
+function showTools(){
+  document.getElementById('portfolio-page').style.display='none';
+  document.getElementById('tools-page').style.display='block';
+  window.scrollTo(0,0);
+}
+
+// ===== THEME =====
+const appState = { theme:'dark', resumeText:'', lastStyle:null, lastEmailType:null, analyses:0, emails:0, bestScore:null, lastScores:null, extractedData:null, sessionLog:[] };
+function toggleTheme(){
+  appState.theme = appState.theme==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme', appState.theme);
+  document.querySelector('.theme-btn').textContent = appState.theme==='dark'?'☀️ Light':'🌙 Dark';
+}
+
+// ===== MOBILE NAV =====
+function toggleMob(){ document.getElementById('mobNav').classList.toggle('open'); }
+function closeMob(){ document.getElementById('mobNav').classList.remove('open'); }
+
+// ===== ACTIVE NAV ON SCROLL =====
+const allSections = document.querySelectorAll('section[id]');
+const allNavLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  allSections.forEach(s=>{ if(window.scrollY>=s.offsetTop-80) cur=s.id; });
+  allNavLinks.forEach(a=>{ a.classList.toggle('active', a.getAttribute('href')==='#'+cur); });
+},{passive:true});
+
+// ===== ANIMATE SKILL BARS on scroll =====
+const skillObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.sk-bar').forEach(b=>{ b.style.width=b.dataset.w; });
+      skillObs.unobserve(e.target);
+    }
+  });
+},{threshold:.2});
+document.getElementById('skillsGrid') && skillObs.observe(document.getElementById('skillsGrid'));
+
+// ===== TOOLS TABS =====
+function switchTTab(name){
+  document.querySelectorAll('.ttab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tpage').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`.ttab[onclick*="${name}"]`).classList.add('active');
+  document.getElementById('tpage-'+name).classList.add('active');
+  if(name==='email' && appState.resumeText) document.getElementById('emailResumeInput').value=appState.resumeText;
+}
+
+// ===== INPUT TAB =====
+function switchInputTab(tab){
+  const isU=tab==='upload';
+  document.getElementById('pdfPanel').style.display=isU?'block':'none';
+  document.getElementById('pastePanel').style.display=isU?'none':'block';
+  document.getElementById('tabUpload').style.background=isU?'var(--accent)':'transparent';
+  document.getElementById('tabUpload').style.color=isU?'#fff':'var(--text2)';
+  document.getElementById('tabPaste').style.background=isU?'transparent':'var(--accent)';
+  document.getElementById('tabPaste').style.color=isU?'var(--text2)':'#fff';
+}
+
+// ===== PDF =====
+function handleDrop(e){ e.preventDefault(); document.getElementById('pdfDropZone').style.borderColor='var(--border)'; const f=e.dataTransfer.files[0]; if(f&&f.type==='application/pdf') handlePdfFile(f); else showPdfStatus('error','Please drop a valid PDF file.'); }
+function showPdfStatus(type,msg){ const el=document.getElementById('pdfStatus'); const colors={success:'var(--green)',error:'var(--accent3)',info:'var(--blue)',loading:'var(--yellow)'}; const icons={success:'✅',error:'❌',info:'ℹ️',loading:'⏳'}; el.style.display='block'; el.style.background=type==='error'?'rgba(255,107,107,.1)':type==='success'?'rgba(0,212,170,.1)':'rgba(255,209,102,.1)'; el.style.color=colors[type]; el.style.border=`1px solid ${colors[type]}40`; el.innerHTML=`${icons[type]} ${msg}`; }
+async function handlePdfFile(file){ if(!file) return; if(file.size>10*1024*1024){ showPdfStatus('error','File too large. Max 10 MB.'); return; } showPdfStatus('loading','Reading PDF...'); document.getElementById('pdfDropZone').innerHTML=`<div style="font-size:1.8rem;margin-bottom:5px">📄</div><div style="font-size:.88rem;font-weight:600;color:var(--accent)">${file.name}</div><div style="font-size:.74rem;color:var(--text3);margin-top:3px">${(file.size/1024).toFixed(0)} KB · Click to change</div><input type="file" id="pdfFileInput" accept=".pdf" style="display:none" onchange="handlePdfFile(this.files[0])">`; try{ const text=await extractTextFromPdf(file); if(!text||text.trim().length<50){ showPdfStatus('error','Could not extract text. Try a text-based PDF (not scanned image).'); return; } document.getElementById('resumeInput').value=text; showPdfStatus('success',`Extracted ${text.split(/\s+/).length} words. Ready to analyze!`); }catch(err){ showPdfStatus('error','Failed to read PDF: '+err.message); } }
+async function extractTextFromPdf(file){ if(!window.pdfjsLib){ await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js'); window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; } const ab=await file.arrayBuffer(); const pdf=await window.pdfjsLib.getDocument({data:ab}).promise; let t=''; for(let i=1;i<=pdf.numPages;i++){ const p=await pdf.getPage(i); const c=await p.getTextContent(); t+=c.items.map(x=>x.str).join(' ')+'\n'; } return t; }
+function loadScript(src){ return new Promise((res,rej)=>{ const s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=rej; document.head.appendChild(s); }); }
+function clearResume(){ document.getElementById('resumeInput').value=''; document.getElementById('pdfStatus').style.display='none'; document.getElementById('pdfDropZone').innerHTML=`<div style="font-size:2.2rem;margin-bottom:7px">📂</div><div style="font-size:.9rem;font-weight:600;color:var(--text);margin-bottom:3px">Drop PDF here or click to browse</div><div style="font-size:.76rem;color:var(--text3)">Supports PDF resume files · Max 10 MB</div><input type="file" id="pdfFileInput" accept=".pdf" style="display:none" onchange="handlePdfFile(this.files[0])">`; document.getElementById('resultsPanel').style.display='none'; document.getElementById('emptyState').style.display='flex'; }
+
+// ===== ANALYSIS =====
+function loadSample(){ switchInputTab('paste'); document.getElementById('resumeInput').value=`ALEX MORGAN\nalex.morgan@email.com | (555) 321-0987 | linkedin.com/in/alexmorgan | github.com/alexmorgan\n\nSUMMARY\nResults-driven software engineer with 3 years of experience building scalable web applications. Proven track record in Python, JavaScript, and cloud infrastructure. Passionate about clean code and collaborative development.\n\nSKILLS\nProgramming: Python, JavaScript, TypeScript, Java, SQL\nFrameworks: React, Node.js, Django, FastAPI\nCloud & DevOps: AWS (EC2, S3, Lambda), Docker, Kubernetes, CI/CD\nTools: Git, PostgreSQL, MongoDB, Redis, Jira\n\nEXPERIENCE\nSoftware Engineer | TechCorp Inc. | Jan 2022 – Present\n- Developed RESTful APIs serving 500K+ daily requests with 99.9% uptime\n- Led migration from monolithic architecture to microservices, reducing load time by 40%\n- Collaborated with cross-functional teams to ship 6 major product features\n- Mentored 2 junior developers through code reviews and pair programming\n\nJunior Developer | StartupXYZ | Jun 2021 – Dec 2021\n- Built and maintained React frontend components for SaaS dashboard\n- Optimized database queries resulting in 30% performance improvement\n\nEDUCATION\nB.S. Computer Science | State University | 2021\nGPA: 3.7/4.0 | Dean's List (3 semesters)\n\nPROJECTS\nOpenTracker – Open-source habit tracking app (GitHub: 2.1k stars)\nTech: React, Node.js, PostgreSQL | 800+ active users\n\nCERTIFICATIONS\nAWS Certified Developer – Associate | Google Cloud Professional Data Engineer`; }
+
+function extractProfile(text){ const lines=text.split('\n').map(l=>l.trim()).filter(Boolean); const name=lines[0]||'Candidate'; const emailMatch=text.match(/[\w.+-]+@[\w-]+\.[a-z]{2,}/i); const skillsMatch=text.match(/SKILLS?[\s\S]{0,20}\n([\s\S]*?)(?=\n[A-Z]{2,}|\n\n[A-Z]|$)/i); const skillsRaw=skillsMatch?skillsMatch[1]:''; const skills=skillsRaw.match(/[A-Za-z][A-Za-z0-9#+./ -]{1,20}/g)||[]; const topSkills=[...new Set(skills.filter(s=>s.length>2&&!['and','the','with','for','our','are','was'].includes(s.toLowerCase())))].slice(0,10); const eduMatch=text.match(/EDUCATION[\s\S]*?(?:\n[A-Z]{3,}|$)/i); const edu=eduMatch?eduMatch[0].split('\n').slice(1).filter(Boolean)[0]||'':''; const expMatch=text.match(/EXPERIENCE[\s\S]*?(?=\nEDUCATION|\nSKILLS|\nPROJECTS|$)/i); const expLines=expMatch?expMatch[0].split('\n').filter(l=>l.match(/\|.*\d{4}/)):[]; const latestJob=expLines[0]||''; const sumMatch=text.match(/SUMMARY[\s\S]{0,10}\n([\s\S]{0,300}?)(?=\n[A-Z]{2,})/i); const summary=sumMatch?sumMatch[1].trim():''; return {name,email:emailMatch?.[0]||'',topSkills,edu,latestJob,summary}; }
+
+function scoreResume(text){ const len=text.length; const words=text.split(/\s+/).length; const atsKeywords=['experience','skills','education','projects','certifications','python','javascript','java','sql','react','node','aws','git','agile','leadership','managed','developed','led','built','designed','improved','increased','reduced']; const atsHits=atsKeywords.filter(k=>text.toLowerCase().includes(k)).length; const hasEmail=/[\w.+-]+@[\w-]+\.[a-z]{2,}/i.test(text); const hasPhone=/\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/.test(text); const hasSections=['experience','education','skills'].filter(s=>text.toLowerCase().includes(s)).length; const ats=Math.min(100,Math.round((atsHits/atsKeywords.length)*50+(hasEmail?10:0)+(hasPhone?8:0)+hasSections*10+(len>500?7:0))); const sentenceEnds=(text.match(/[.!?]/g)||[]).length; const avgSentLen=words/(sentenceEnds||1); const bulletCount=(text.match(/^[-•*]/gm)||[]).length; const grammar=Math.min(100,Math.round(75+(avgSentLen<25?10:0)+(bulletCount>3?8:0)+(len>800?7:0))); const hasQuantified=(text.match(/\d+[%+k]|\d+ (users?|requests?|projects?|clients?)/gi)||[]).length; const hasActionVerbs=['led','developed','managed','designed','built','created','implemented','optimized','collaborated'].filter(v=>text.toLowerCase().includes(v)).length; const hasLinkedin=/linkedin/i.test(text); const hasGithub=/github/i.test(text); const pro=Math.min(100,Math.round(60+Math.min(hasQuantified*3,15)+Math.min(hasActionVerbs*3,15)+(hasLinkedin?5:0)+(hasGithub?5:0))); const overall=Math.round((ats*0.35+grammar*0.25+pro*0.4)); const subs={"Keyword Density":Math.min(100,Math.round(atsHits/atsKeywords.length*100)),"Contact Completeness":(hasEmail&&hasPhone?100:hasEmail||hasPhone?60:0),"Section Structure":Math.round(hasSections/3*100),"Quantified Impact":Math.min(100,hasQuantified*12),"Action Verbs":Math.min(100,hasActionVerbs*12),"Length & Detail":Math.min(100,Math.round(len/20))}; return{ats,grammar,pro,overall,subs}; }
+
+function generateFeedback(text,scores){ const feedback=[]; const t=text.toLowerCase(); if(scores.subs["Quantified Impact"]<60) feedback.push({type:'warn',msg:"Add measurable achievements — numbers like '40% improvement' or '10k+ users' dramatically boost ATS and recruiter attention."}); if(scores.subs["Keyword Density"]<70) feedback.push({type:'warn',msg:"Include more industry keywords. Many ATS systems scan for role-specific terms before a human sees your resume."}); if(!t.includes('summary')&&!t.includes('objective')) feedback.push({type:'warn',msg:"A concise professional summary (2–3 sentences) significantly increases recruiter engagement."}); if(scores.subs["Action Verbs"]<50) feedback.push({type:'error',msg:"Use strong action verbs (Led, Engineered, Architected, Spearheaded) to open each bullet point."}); if(scores.subs["Contact Completeness"]<80) feedback.push({type:'error',msg:"Ensure your email, phone, and LinkedIn profile are clearly listed at the top."}); if(scores.grammar>85) feedback.push({type:'success',msg:"Grammar and writing quality look strong. Your content reads professionally."}); if(scores.pro>80) feedback.push({type:'success',msg:"Strong professionalism indicators — your resume presents well to human reviewers."}); if(t.includes('responsible for')) feedback.push({type:'warn',msg:"Replace 'responsible for' with direct action verbs. 'Managed' or 'Owned' reads stronger to recruiters."}); if(!t.includes('github')&&!t.includes('portfolio')) feedback.push({type:'info',msg:"Consider adding a GitHub or portfolio link — it signals proactive technical engagement."}); if(text.length<800) feedback.push({type:'warn',msg:"Resume appears brief. One full page (700–1000 words) typically performs best for early-to-mid career roles."}); if(scores.ats>80) feedback.push({type:'success',msg:"Excellent ATS compatibility — your resume is well-structured for automated screening."}); if(scores.overall>=85) feedback.push({type:'success',msg:"Strong overall resume! Focus on tailoring keywords to each specific job description for maximum impact."}); return feedback; }
+
+function gradeLabel(n){ if(n>=90) return'Excellent'; if(n>=80) return'Strong'; if(n>=70) return'Good'; if(n>=60) return'Fair'; return'Needs Work'; }
+
+function analyzeResume(){ const text=document.getElementById('resumeInput').value.trim(); if(!text){ const isPdf=document.getElementById('pdfPanel').style.display!=='none'; alert(isPdf?'Please upload a PDF first.':'Please paste your resume first.'); return; } appState.resumeText=text; document.getElementById('emailResumeInput').value=text; const btn=document.querySelector('#tpage-checker .btn-primary'); btn.disabled=true; document.getElementById('analyzeSpinner').style.display='inline-block'; document.getElementById('analyzeLabel').textContent='Analyzing...'; setTimeout(()=>{ const scores=scoreResume(text); const feedback=generateFeedback(text,scores); const profile=extractProfile(text); appState.extractedData=profile; appState.lastScores=scores; appState.analyses++; appState.bestScore=appState.bestScore?Math.max(appState.bestScore,scores.overall):scores.overall; logActivity(`Resume analyzed — Overall: ${scores.overall}/100`); document.getElementById('scoreOverall').textContent=scores.overall; document.getElementById('scoreAts').textContent=scores.ats; document.getElementById('scoreGrammar').textContent=scores.grammar; document.getElementById('scorePro').textContent=scores.pro; document.getElementById('gradeOverall').textContent=gradeLabel(scores.overall); document.getElementById('gradeAts').textContent=gradeLabel(scores.ats); document.getElementById('gradeGrammar').textContent=gradeLabel(scores.grammar); document.getElementById('gradePro').textContent=gradeLabel(scores.pro); let pb=''; for(const[k,v] of Object.entries(scores.subs)){ const color=v>=80?'#00d4aa':v>=60?'#ffd166':'#ff6b6b'; const status=v>=80?'Good':v>=60?'Fair':'Low'; pb+=`<div style="margin-bottom:16px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:.84rem;color:var(--text2)">${k}</span><div style="display:flex;align-items:center;gap:7px"><span style="font-size:.7rem;font-weight:700;padding:2px 7px;border-radius:20px;background:${color}22;color:${color};border:1px solid ${color}44">${status}</span><span style="font-size:.9rem;font-weight:800;color:${color}">${v}%</span></div></div><div style="width:100%;height:9px;background:var(--bg3);border-radius:5px;overflow:hidden;border:1px solid var(--border)"><div class="pbar-fill" data-target="${v}" style="height:100%;width:0%;border-radius:5px;background:linear-gradient(90deg,${color}cc,${color});transition:width 1.1s cubic-bezier(.4,0,.2,1)"></div></div></div>`; } document.getElementById('progressBars').innerHTML=pb; requestAnimationFrame(()=>requestAnimationFrame(()=>{ document.querySelectorAll('.pbar-fill').forEach(el=>{el.style.width=el.dataset.target+'%';}); })); const icons={success:'✅',warn:'⚠️',error:'❌',info:'ℹ️'}; const bgColors={success:'rgba(0,212,170,.08)',warn:'rgba(255,209,102,.08)',error:'rgba(255,107,107,.08)',info:'rgba(79,195,247,.08)'}; document.getElementById('feedbackList').innerHTML=feedback.map(f=>`<div class="feedback-item" style="background:${bgColors[f.type]};border-radius:8px"><span class="feedback-icon">${icons[f.type]}</span><span style="font-size:.83rem;color:var(--text)">${f.msg}</span></div>`).join(''); const ep=profile; document.getElementById('extractedProfile').innerHTML=`<div class="stat-row"><span class="stat-name">Name</span><span class="stat-value">${ep.name}</span></div><div class="stat-row"><span class="stat-name">Email</span><span class="stat-value">${ep.email||'Not found'}</span></div><div class="stat-row"><span class="stat-name">Latest Role</span><span class="stat-value">${ep.latestJob||'Not detected'}</span></div><div class="stat-row"><span class="stat-name">Education</span><span class="stat-value">${ep.edu||'Not detected'}</span></div><div class="stat-row"><span class="stat-name">Top Skills</span><span class="stat-value">${ep.topSkills.map(s=>`<span class="tag tag-blue">${s}</span>`).join('')}</span></div>`; document.getElementById('resultsPanel').style.display='block'; document.getElementById('emptyState').style.display='none'; updateDashboard(); btn.disabled=false; document.getElementById('analyzeSpinner').style.display='none'; document.getElementById('analyzeLabel').textContent='✦ Analyze Resume'; },1200); }
+
+// ===== EMAIL =====
+const V={openings:{formal:["I am reaching out to formally express my keen interest in","With great enthusiasm, I am writing to apply for","Please allow me to introduce myself as a prospective candidate for","I write with considerable interest regarding","It is with sincere enthusiasm that I submit my application for"],modern:["I'd love to be considered for","I'm genuinely excited about the opportunity to join","After researching your team's work, I'm motivated to apply for","Your posting for a [role] immediately caught my attention —","The [role] opening aligns perfectly with where I'm headed professionally —"],executive:["Strategic fit and mutual ambition are what drive my interest in","I am pursuing selective opportunities, and [company] represents exactly the caliber I seek —","Having built a track record of measurable results, I'm compelled to explore the [role] position","Targeted outreach to high-impact teams has led me here —","The intersection of my expertise and your strategic objectives makes this conversation essential —"]},closings:{formal:["I would greatly appreciate the opportunity to discuss how my qualifications align with your requirements at your earliest convenience.","Kindly consider my application favorably; I remain available for an interview at your convenience.","I look forward to the possibility of contributing to your esteemed organization and welcome further discussion.","Thank you sincerely for your time and consideration; I hope to hear from you soon."],modern:["I'd love to chat about how I can contribute — my schedule is flexible for a call this week.","Looking forward to exploring this further. Happy to send over any additional details you need.","Let's find a time to connect. I'm excited about what we could build together.","Thanks for reading — I hope my background resonates, and I'm eager to learn more about the role."],executive:["I welcome a strategic conversation at your earliest availability to explore alignment.","My calendar has flexibility for a focused discussion — I'll follow up accordingly unless you prefer to initiate.","I look forward to a substantive dialogue; the value I bring is best articulated in conversation."]},transitions:["Furthermore,","Additionally,","It is worth noting that","Of particular relevance,","What distinguishes my profile is","My background also encompasses","Complementing this,","A defining strength is","Building on this foundation,","Notably,","Beyond technical aptitude,","In parallel,","Equally significant,","Worthy of mention,"],skills_intro:["My core competencies include","I bring hands-on proficiency in","My technical foundation spans","I have cultivated expertise in","My skill set encompasses"],experience_intro:["Throughout my professional journey,","In my previous roles,","My career trajectory has included","Drawing from direct experience,","My professional history demonstrates"],enthusiasm:["I am particularly drawn to","What excites me most is","I am especially inspired by","The aspect that resonates most strongly is","I find particularly compelling"]};
+const synonyms={"experience":["background","expertise","track record","proficiency","hands-on exposure"],"skilled":["adept","proficient","accomplished","well-versed","capable"],"developed":["engineered","architected","built","crafted","implemented"],"worked":["collaborated","engaged","partnered","contributed","operated"],"strong":["robust","considerable","formidable","solid","substantial"],"passionate":["deeply motivated","genuinely driven","enthusiastic","committed","invested"]};
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function rnd(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
+function syn(w){return synonyms[w]?pick(synonyms[w]):w;}
+
+function detectStyleConflict(style,type){return appState.lastStyle===style&&appState.lastEmailType===type;}
+function computeDiversity(text){const words=text.toLowerCase().match(/\b\w+\b/g)||[];const unique=new Set(words);const vocabScore=Math.min(100,Math.round((unique.size/words.length)*100*1.6));const sentences=text.split(/[.!?]+/).filter(s=>s.trim().length>10);const avgLen=sentences.reduce((a,s)=>a+s.trim().split(' ').length,0)/(sentences.length||1);const styleScore=Math.min(100,Math.round(60+(avgLen>8?15:0)+(avgLen<25?15:0)+(sentences.length>4?10:0)));const origScore=Math.min(100,Math.round(vocabScore*0.5+styleScore*0.5+rnd(0,8)));return{vocabScore,styleScore,origScore};}
+
+function buildEmail(type,style,recipient,role,extra,profile){const p=profile||{};const name=p.name||'the applicant';const skills=p.topSkills?.slice(0,4)||['technical skills'];const edu=p.edu||'a relevant academic background';const latestJob=p.latestJob||'';const summary=p.summary||'';const opening=pick(V.openings[style]);const closing=pick(V.closings[style]);const trans1=pick(V.transitions);const trans2=pick(V.transitions.filter(t=>t!==trans1)||V.transitions);const skillsIntro=pick(V.skills_intro);const expIntro=pick(V.experience_intro);const enthuse=pick(V.enthusiasm);const roleText=role||'the advertised position';const recipientText=recipient||'Hiring Team';const companyMatch=recipient?.match(/at (.+)/i)?.[1]||'your organization';let subject='';let body='';if(type==='internship'){subject=style==='executive'?`Strategic Interest: ${roleText} — ${name}`:`Application for ${roleText} — ${name}`;body=`Dear ${recipientText},\n\n${opening.replace('[role]',roleText).replace('[company]',companyMatch)} ${roleText} at ${companyMatch}.\n\n${skillsIntro}: ${skills.join(', ')} — competencies I have honed through coursework, personal projects, and collaborative environments. ${enthuse} the opportunity to apply these capabilities within ${companyMatch}'s context, where I believe meaningful contributions are achievable from day one.\n\n${trans1} ${expIntro.replace(',','')} I have demonstrated consistent curiosity and a bias toward action. ${edu} has provided me with strong analytical foundations, complemented by independent exploration beyond the classroom.\n\n${extra?`Notably, ${extra}\n\n`:''}${closing}\n\nSincerely,\n${name}`;}else if(type==='job'){subject=style==='formal'?`Application for ${roleText} — ${name}`:`${name} — ${roleText} Application`;body=`Dear ${recipientText},\n\n${opening.replace('[role]',roleText).replace('[company]',companyMatch)} ${roleText} at ${companyMatch}.\n\n${expIntro} I have cultivated ${syn('strong')} ${syn('experience')} in ${skills.slice(0,2).join(' and ')}${skills.length>2?`, alongside proficiency in ${skills.slice(2).join(', ')}`:''}. ${enthuse} ${companyMatch}'s trajectory and the potential to contribute substantively.\n\n${trans1} ${latestJob?`my most recent position as ${latestJob.split('|')[0]?.trim()||'a professional'} shaped my approach to ${skills[0]||'problem-solving'} and cross-functional collaboration.`:`my background has encompassed both independent initiative and team-oriented delivery.`}\n\n${trans2} ${summary?`My professional philosophy: ${summary.slice(0,120)}...`:`I bring ${syn('strong')} ownership mentality and consistently deliver beyond expectations.`}\n\n${extra?`${pick(V.transitions)} ${extra}\n\n`:''}${closing}\n\n${style==='executive'?'Regards':'Best regards'},\n${name}`;}else if(type==='followup'){subject=`Following Up — ${roleText} Application`;body=`Dear ${recipientText},\n\nI am writing to follow up on my application for the ${roleText} position at ${companyMatch}, submitted previously.\n\n${trans1} I remain ${syn('passionate')} about this opportunity and wanted to reiterate my genuine interest. ${expIntro} I have continued to reflect on how my ${syn('experience')} in ${skills.slice(0,2).join(' and ')} positions me well to contribute meaningfully.\n\n${enthuse} the work your team is doing at ${companyMatch}. I am confident that a conversation would reveal strong alignment between my capabilities and your requirements.\n\n${extra?`${extra}\n\n`:''}Please let me know if any additional information would be helpful. ${closing}\n\n${style==='formal'?'Yours sincerely':'Warm regards'},\n${name}`;}else if(type==='referral'){subject=`Referral Introduction — ${name} for ${roleText}`;body=`Dear ${recipientText},\n\nI was referred to you regarding the ${roleText} opening at ${companyMatch}, and I wanted to introduce myself directly.\n\n${skillsIntro}: ${skills.join(', ')} — developed through ${edu} and hands-on professional ${syn('experience')}. ${enthuse} the specific challenges your team is navigating, as they align directly with my areas of strength.\n\n${trans1} ${latestJob?`my current/most recent role as ${latestJob.split('|')[0]?.trim()||'a professional'} has equipped me with practical insight`:`my background has prepared me comprehensively`} to contribute to your objectives at ${companyMatch}.\n\n${extra?`${extra}\n\n`:''} ${closing}\n\n${style==='modern'?'Thanks,':'Respectfully,'}\n${name}`;}else if(type==='thankyou'){subject=`Thank You — ${roleText} Interview`;body=`Dear ${recipientText},\n\nThank you sincerely for your time during our recent conversation regarding the ${roleText} role at ${companyMatch}.\n\n${trans1} our discussion reinforced my enthusiasm for this opportunity. ${enthuse} the specific aspects we discussed — particularly the team's approach and the challenges ahead — and I believe my ${syn('experience')} in ${skills.slice(0,2).join(' and ')} positions me to contribute meaningfully from the outset.\n\n${trans2} I want to affirm that my interest has only grown since our conversation. The culture and mission at ${companyMatch} resonate strongly with my professional values and long-term goals.\n\n${extra?`${extra}\n\n`:''} ${closing}\n\n${style==='executive'?'With appreciation':'With gratitude'},\n${name}`;}return{subject,body};}
+
+function generateEmail(){const type=document.getElementById('emailType').value;const style=document.getElementById('emailStyle').value;const recipient=document.getElementById('recipientInfo').value.trim();const role=document.getElementById('roleInfo').value.trim();const extra=document.getElementById('extraContext').value.trim();const resumeText=document.getElementById('emailResumeInput').value.trim();const btn=document.querySelector('#tpage-email .btn-primary');btn.disabled=true;document.getElementById('emailSpinner').style.display='inline-block';document.getElementById('emailLabel').textContent='Generating...';setTimeout(()=>{let profile=appState.extractedData;if(!profile&&resumeText) profile=extractProfile(resumeText);let conflict=detectStyleConflict(style,type);document.getElementById('conflictBanner').style.display=conflict?'flex':'none';const{subject,body}=buildEmail(type,style,recipient,role,extra,profile);const diversity=computeDiversity(body);const emailDisplay=subject?`Subject: ${subject}\n\n${body}`:body;document.getElementById('emailText').textContent=emailDisplay;const metrics=[{label:'Style Diversity',val:diversity.styleScore,color:diversity.styleScore>=80?'var(--green)':diversity.styleScore>=60?'var(--yellow)':'var(--accent3)'},{label:'Vocabulary Diversity',val:diversity.vocabScore,color:diversity.vocabScore>=80?'var(--green)':diversity.vocabScore>=60?'var(--yellow)':'var(--accent3)'},{label:'Originality Score',val:diversity.origScore,color:diversity.origScore>=80?'var(--green)':diversity.origScore>=60?'var(--yellow)':'var(--accent3)'}];document.getElementById('diversityMetrics').innerHTML=metrics.map(m=>`<div class="diversity-row"><span class="diversity-label">${m.label}</span><div class="diversity-bar"><div class="diversity-fill" style="width:0%;background:${m.color}" data-target="${m.val}"></div></div><span class="diversity-num" style="color:${m.color}">${m.val}</span></div>`).join('');setTimeout(()=>document.querySelectorAll('.diversity-fill').forEach(el=>el.style.width=el.dataset.target+'%'),100);const styleLabelMap={formal:'Formal Corporate',modern:'Professional Modern',executive:'Executive Premium'};const typeLabelMap={internship:'Internship',job:'Job Application',followup:'Follow-Up',referral:'Referral',thankyou:'Thank-You'};const styleColors={formal:'rgba(79,195,247,.15)',modern:'rgba(0,212,170,.15)',executive:'rgba(206,147,216,.15)'};const textColors={formal:'var(--blue)',modern:'var(--green)',executive:'var(--purple)'};document.getElementById('styleTag').innerHTML=`<span class="style-badge" style="background:${styleColors[style]};color:${textColors[style]};border:1px solid ${textColors[style]}40">✦ ${styleLabelMap[style]}</span>`;document.getElementById('typeTag').innerHTML=`<span class="tag tag-yellow">${typeLabelMap[type]}</span>`;appState.lastStyle=style;appState.lastEmailType=type;appState.emails++;logActivity(`Email generated — ${typeLabelMap[type]} (${styleLabelMap[style]})`);updateDashboard();document.getElementById('emailOutput').style.display='block';document.getElementById('emailEmpty').style.display='none';btn.disabled=false;document.getElementById('emailSpinner').style.display='none';document.getElementById('emailLabel').textContent='✦ Generate Email';},900);}
+function regenerateEmail(){generateEmail();}
+function copyEmail(){const text=document.getElementById('emailText').textContent;navigator.clipboard.writeText(text).then(()=>showCopyNote());}
+function showCopyNote(){const note=document.createElement('div');note.className='copy-note';note.textContent='✓ Copied to clipboard';document.body.appendChild(note);setTimeout(()=>note.remove(),2200);}
+function downloadEmail(){const text=document.getElementById('emailText').textContent;const blob=new Blob([text],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='generated-email.txt';a.click();}
+
+// ===== REPORT =====
+function downloadReport(){if(!appState.lastScores){alert('Run analysis first.');return;}const s=appState.lastScores;const p=appState.extractedData||{};const report=`AI RESUME CHECKER — ANALYSIS REPORT\nGenerated: ${new Date().toLocaleString()}\n${'='.repeat(50)}\n\nCANDIDATE: ${p.name||'Unknown'}\n\nSCORES\n------\nOverall:       ${s.overall}/100 (${gradeLabel(s.overall)})\nATS Score:     ${s.ats}/100 (${gradeLabel(s.ats)})\nGrammar:       ${s.grammar}/100 (${gradeLabel(s.grammar)})\nProfessional:  ${s.pro}/100 (${gradeLabel(s.pro)})\n\nDETAILED BREAKDOWN\n------------------\n${Object.entries(s.subs).map(([k,v])=>`${k.padEnd(25)} ${v}%`).join('\n')}\n\nEXTRACTED PROFILE\n-----------------\nEmail:       ${p.email||'Not found'}\nLatest Role: ${p.latestJob||'Not detected'}\nEducation:   ${p.edu||'Not detected'}\nTop Skills:  ${(p.topSkills||[]).join(', ')||'Not detected'}\n\n${'='.repeat(50)}\nGenerated by ResumeAI — AI Resume Checker + Smart Email Generator`;const blob=new Blob([report],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='resume-report.txt';a.click();}
+
+// ===== DASHBOARD =====
+function logActivity(msg){appState.sessionLog.unshift({time:new Date().toLocaleTimeString(),msg});if(appState.sessionLog.length>20) appState.sessionLog.pop();}
+function updateDashboard(){document.getElementById('dash-analyses').textContent=appState.analyses;document.getElementById('dash-emails').textContent=appState.emails;document.getElementById('dash-best').textContent=appState.bestScore?appState.bestScore+'/100':'—';if(appState.lastScores){const s=appState.lastScores;document.getElementById('dash-scores').innerHTML=[{label:'Overall',val:s.overall,c:'#6c63ff'},{label:'ATS',val:s.ats,c:'#00d4aa'},{label:'Grammar',val:s.grammar,c:'#4fc3f7'},{label:'Professional',val:s.pro,c:'#ce93d8'}].map(({label,val,c})=>`<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px"><span style="font-size:.84rem;color:var(--text2)">${label}</span><span style="font-size:.9rem;font-weight:800;color:${c}">${val}/100</span></div><div style="width:100%;height:9px;background:var(--bg3);border-radius:5px;overflow:hidden;border:1px solid var(--border)"><div style="height:100%;width:${val}%;border-radius:5px;background:linear-gradient(90deg,${c}99,${c})"></div></div></div>`).join('');}const log=appState.sessionLog;if(log.length){document.getElementById('dash-log').innerHTML=log.map(l=>`<div class="stat-row"><span class="stat-name" style="font-size:.76rem;color:var(--text3)">${l.time}</span><span class="stat-value" style="font-size:.8rem">${l.msg}</span></div>`).join('');}}
+</script>
+</body>
+</html>
