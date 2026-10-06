@@ -9,6 +9,8 @@
 <meta property="og:title" content="Jaish Dahiya | Data Science & Analytics">
 <meta property="og:description" content="Aspiring Data Analyst · Open to Internships & Fresher Roles">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<meta name="theme-color" content="#0b0e1a">
 <title>Jaish Dahiya | Data Science & Analytics</title>
 <style>
 /* ===== ROOT TOKENS ===== */
@@ -42,7 +44,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6;transition:background var(--tr),color var(--tr);overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6;transition:background var(--tr),color var(--tr);overflow-x:hidden}
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
@@ -279,9 +281,39 @@ select:focus{outline:none;border-color:var(--accent)}
   .contact-grid{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ===== UPGRADE LAYER ===== */
+html{scroll-padding-top:70px}
+::selection{background:rgba(108,99,255,.35)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
+[data-theme="light"] nav{background:rgba(240,242,248,.85)}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:300;box-shadow:0 0 12px rgba(108,99,255,.6)}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero-name-gradient{background-image:linear-gradient(120deg,var(--accent),var(--accent2),var(--accent));background-size:200% auto;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.typed-wrap{color:var(--accent2);font-weight:700}
+.caret{display:inline-block;width:2px;height:1.05em;background:var(--accent2);margin-left:3px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.code-card{max-width:470px;margin:42px auto 0;text-align:left;background:rgba(10,13,24,.82);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow),var(--glow);overflow:hidden;backdrop-filter:blur(8px)}
+.code-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--border);font:600 .72rem ui-monospace,Menlo,Consolas,monospace;color:var(--text3)}
+.code-bar i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.code-bar i:nth-child(2){background:#febc2e}.code-bar i:nth-child(3){background:#28c840}
+.code-bar span{margin-left:8px}
+.code-card pre{padding:16px 18px;font:.8rem/1.75 ui-monospace,Menlo,Consolas,monospace;color:#c9d1f0;overflow-x:auto}
+.k{color:#c792ea}.s{color:#00d4aa}.f{color:#4fc3f7}.c{color:#4a5578}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.spot{position:relative}
+.spot::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(108,99,255,.15),transparent 60%)}
+.spot:hover::before{opacity:1}
+#toTop{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--accent);font-size:1.1rem;cursor:pointer;z-index:250;opacity:0;pointer-events:none;transform:translateY(12px);transition:all .3s;box-shadow:var(--shadow)}
+#toTop.show{opacity:1;pointer-events:auto;transform:none}
+#toTop:hover{background:var(--accent);color:#fff}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<div id="prog"></div>
+<button id="toTop" aria-label="Back to top">↑</button>
 
 <!-- ===== NAV ===== -->
 <nav>
@@ -335,10 +367,11 @@ select:focus{outline:none;border-color:var(--accent)}
     <div class="hero-grid-bg"></div>
     <div class="hero-glow-l"></div>
     <div class="hero-glow-r"></div>
+    <canvas id="net"></canvas>
     <div class="hero">
       <div class="hero-badge"><span class="hero-badge-dot"></span> Data Science Student · Class of 2029</div>
       <h1><span class="hero-name-gradient">Jaish Dahiya</span></h1>
-      <div class="hero-role">Data Science &amp; Analytics · Python Developer · ML Enthusiast</div>
+      <div class="hero-role">Data Science &amp; Analytics · <span class="typed-wrap"><span id="typed">Python Developer</span><span class="caret"></span></span></div>
       <p class="hero-sub">Transforming raw data into decisions that matter. Skilled in SQL, Power BI, Python, Machine Learning, and AI.</p>
       <div class="hero-ctas">
         <a href="#projects" class="btn btn-primary">View My Work →</a>
@@ -356,6 +389,14 @@ select:focus{outline:none;border-color:var(--accent)}
         <span class="hero-tag">MongoDB</span>
         <span class="hero-tag">Statistics</span>
       </div>
+      <div class="code-card"><div class="code-bar"><i></i><i></i><i></i><span>jaish.py</span></div><pre><span class="k">class</span> <span class="f">Jaish</span>:
+    role   = <span class="s">"Data Science Student"</span>
+    stack  = [<span class="s">"Python"</span>, <span class="s">"SQL"</span>, <span class="s">"Power BI"</span>, <span class="s">"ML"</span>]
+    status = <span class="s">"Open to internships 🚀"</span>
+
+    <span class="k">def</span> <span class="f">mission</span>(self):
+        <span class="k">return</span> <span class="s">"Raw data → decisions that matter"</span></pre></div>
+      
     </div>
   </div>
 
@@ -475,7 +516,7 @@ select:focus{outline:none;border-color:var(--accent)}
             </div>
           </div>
           <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
-            <a href="https://ai-weather-prediction-7ovm.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">🚀 Launch Vantage</a>
+            <a href="https://ai-weather-prediction-7ovm.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">🚀 Live Demo</a>
             <a href="https://github.com/jaishdahiya6-del/AI-Weather-Prediction-" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
           </div>
         </div>
@@ -1167,6 +1208,42 @@ function downloadReport(){if(!appState.lastScores){alert('Run analysis first.');
 // ===== DASHBOARD =====
 function logActivity(msg){appState.sessionLog.unshift({time:new Date().toLocaleTimeString(),msg});if(appState.sessionLog.length>20) appState.sessionLog.pop();}
 function updateDashboard(){document.getElementById('dash-analyses').textContent=appState.analyses;document.getElementById('dash-emails').textContent=appState.emails;document.getElementById('dash-best').textContent=appState.bestScore?appState.bestScore+'/100':'—';if(appState.lastScores){const s=appState.lastScores;document.getElementById('dash-scores').innerHTML=[{label:'Overall',val:s.overall,c:'#6c63ff'},{label:'ATS',val:s.ats,c:'#00d4aa'},{label:'Grammar',val:s.grammar,c:'#4fc3f7'},{label:'Professional',val:s.pro,c:'#ce93d8'}].map(({label,val,c})=>`<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px"><span style="font-size:.84rem;color:var(--text2)">${label}</span><span style="font-size:.9rem;font-weight:800;color:${c}">${val}/100</span></div><div style="width:100%;height:9px;background:var(--bg3);border-radius:5px;overflow:hidden;border:1px solid var(--border)"><div style="height:100%;width:${val}%;border-radius:5px;background:linear-gradient(90deg,${c}99,${c})"></div></div></div>`).join('');}const log=appState.sessionLog;if(log.length){document.getElementById('dash-log').innerHTML=log.map(l=>`<div class="stat-row"><span class="stat-name" style="font-size:.76rem;color:var(--text3)">${l.time}</span><span class="stat-value" style="font-size:.8rem">${l.msg}</span></div>`).join('');}}
+
+/* ===== UPGRADE LAYER ===== */
+(()=>{
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+// scroll progress + back to top
+const prog=$('#prog'),tt=$('#toTop');
+addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?scrollY/h*100:0)+'%';tt.classList.toggle('show',scrollY>600)},{passive:true});
+tt.onclick=()=>scrollTo({top:0,behavior:rm?'auto':'smooth'});
+// typing roles
+const ty=$('#typed');
+if(ty&&!rm){const R=['Python Developer','Data Analyst','ML Enthusiast','Dashboard Builder'];let i=0,j=0,d=false;
+(function t(){const w=R[i];ty.textContent=w.slice(0,j);if(!d&&j===w.length){d=true;return setTimeout(t,1600)}if(d&&j===0){d=false;i=(i+1)%R.length}j+=d?-1:1;setTimeout(t,d?35:75)})()}
+// reveal on scroll
+const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target);setTimeout(()=>e.target.classList.remove('reveal','in'),900)}}),{threshold:.12});
+$$('.sec-eyebrow,.sec-title,.sec-sub,.about-card,.stat-box,.avail-card,.skill-card,.project-card,.tl-item,.cert-card,.contact-link').forEach((el,k)=>{if(rm)return;el.classList.add('reveal');el.style.transitionDelay=(k%4)*70+'ms';rv.observe(el)});
+// count-up stats
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const m=/^(\d+)(\D*)$/.exec(e.target.textContent.trim());if(!m||rm)return;const n=+m[1],t0=performance.now();
+(function s(t){const p=Math.min(1,(t-t0)/1400),v=Math.round(n*(1-Math.pow(1-p,3)));e.target.textContent=v+m[2];if(p<1)requestAnimationFrame(s)})(t0)}),{threshold:.6});
+$$('.stat-num').forEach(el=>co.observe(el));
+// spotlight cards
+$$('.skill-card,.project-card,.stat-box,.cert-card,.contact-link,.tl-item,.about-card').forEach(el=>{el.classList.add('spot');
+el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();el.style.setProperty('--mx',e.clientX-r.left+'px');el.style.setProperty('--my',e.clientY-r.top+'px')})});
+// hero data-network canvas
+const c=$('#net');
+if(c&&!rm){const x=c.getContext('2d'),box=c.parentElement;let W=0,H=0,P=[],m={x:-999,y:-999};
+const size=()=>{W=c.width=box.offsetWidth;H=c.height=box.offsetHeight;const n=Math.min(70,Math.floor(W*H/17000));P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}))};
+addEventListener('resize',size);
+box.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top});
+box.addEventListener('mouseleave',()=>m.x=-999);
+(function L(){if(box.offsetWidth){if(Math.abs(box.offsetWidth-W)>1||!P.length)size();x.clearRect(0,0,W,H);
+for(const p of P){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;x.fillStyle='rgba(108,99,255,.55)';x.beginPath();x.arc(p.x,p.y,1.6,0,6.3);x.fill()}
+for(let i=0;i<P.length;i++){for(let j=i+1;j<P.length;j++){const d=Math.hypot(P[i].x-P[j].x,P[i].y-P[j].y);if(d<120){x.strokeStyle='rgba(108,99,255,'+(.22*(1-d/120))+')';x.beginPath();x.moveTo(P[i].x,P[i].y);x.lineTo(P[j].x,P[j].y);x.stroke()}}
+const dm=Math.hypot(P[i].x-m.x,P[i].y-m.y);if(dm<160){x.strokeStyle='rgba(0,212,170,'+(.5*(1-dm/160))+')';x.beginPath();x.moveTo(P[i].x,P[i].y);x.lineTo(m.x,m.y);x.stroke()}}}
+requestAnimationFrame(L)})()}
+})();
 </script>
 </body>
 </html>
