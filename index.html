@@ -418,8 +418,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent2);outline-of
         <div>
           <div class="about-stat-grid">
             <div class="stat-box">
-              <div class="stat-num">8+</div>
-              <div class="stat-lbl">Live Projects</div>
+              <div class="stat-num">18</div>
+              <div class="stat-lbl">Projects</div>
             </div>
             <div class="stat-box">
               <div class="stat-num">3</div>
@@ -787,7 +787,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent2);outline-of
           </div>
           <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
             <button class="btn btn-outline btn-sm" onclick="showTools()">⚡ Try It Live</button>
-            <a href="https://github.com/jaishdahiya6-del" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
+            <a href="https://github.com/jaishdahiya6-del/portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
           </div>
         </div>
       </div>
@@ -832,7 +832,187 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent2);outline-of
           </div>
           <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
             <a href="https://vantage-analytics.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">🚀 Launch Vantage</a>
-            <a href="https://github.com/jaishdahiya6-del" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
+            <a href="https://github.com/jaishdahiya6-del/vantage-analytics" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" style="margin-top:24px">
+        <div class="project-header">
+          <div class="proj-tags"><span class="tag tag-blue">Python</span><span class="tag tag-purple">Machine Learning</span><span class="tag tag-green">XGBoost</span><span class="tag tag-yellow">Streamlit</span></div>
+          <div class="proj-title">💳 Fraud Detection &amp; Risk Analytics</div>
+          <div class="proj-tagline">An end-to-end ML system that detects fraudulent transactions under extreme class imbalance</div>
+        </div>
+        <div class="project-body">
+          <div class="proj-grid">
+            <div><div class="proj-sec-label">What I Built</div><ul class="proj-list"><li>Handled extreme imbalance (fraud is under 0.2% of transactions) using SMOTE, resampling and class weighting</li><li>Prevented data leakage with stratified splits and leak-free scaling</li><li>Evaluated with precision, recall and ROC/PR curves instead of accuracy, and tuned the decision threshold</li><li>Served the model through an interactive Streamlit risk dashboard, backed by unit tests</li></ul></div>
+            <div><div class="proj-sec-label">Technologies Used</div><div class="tech-cluster"><span class="tag tag-blue">Python</span><span class="tag tag-purple">Scikit-learn</span><span class="tag tag-green">XGBoost</span><span class="tag tag-yellow">Streamlit</span></div>
+              <div class="proj-sec-label">Key Outcomes</div><div class="outcome-box"><ul class="proj-list"><li>Trained model bundle that scores new transactions into risk categories</li><li>Metrics chosen around the real cost of missed fraud</li></ul></div></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <a href="https://github.com/jaishdahiya6-del/Fraud-detection-system" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" style="margin-top:24px">
+        <div class="project-header">
+          <div class="proj-tags"><span class="tag tag-blue">Python</span><span class="tag tag-purple">Machine Learning</span><span class="tag tag-green">NLP</span><span class="tag tag-yellow">FastAPI</span></div>
+          <div class="proj-title">💼 Career IQ — AI Job Market Intelligence</div>
+          <div class="proj-tagline">A job market analyzer and career predictor with an API and a dashboard</div>
+        </div>
+        <div class="project-body">
+          <div class="proj-grid">
+            <div><div class="proj-sec-label">What I Built</div><ul class="proj-list"><li>Extracted skills from job postings with a 40+ skill taxonomy across 7 categories</li><li>Compared four regression models for salary prediction, with confidence intervals</li><li>Built a role recommender and a skill-gap learning roadmap</li><li>Shipped a FastAPI service and a Streamlit dashboard with database persistence and Docker</li></ul></div>
+            <div><div class="proj-sec-label">Technologies Used</div><div class="tech-cluster"><span class="tag tag-blue">Python</span><span class="tag tag-green">FastAPI</span><span class="tag tag-yellow">Streamlit</span><span class="tag tag-purple">XGBoost</span></div>
+              <div class="proj-sec-label">Key Outcomes</div><div class="outcome-box"><ul class="proj-list"><li>Salary predictions with roughly 80% confidence bounds</li><li>Resume and job-description analyzers scored against market demand</li></ul></div></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <a href="https://github.com/jaishdahiya6-del/ai-job-market-career-predictor" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" style="margin-top:24px">
+        <div class="project-header">
+          <div class="proj-tags"><span class="tag tag-blue">Python</span><span class="tag tag-purple">RAG</span><span class="tag tag-green">FAISS</span><span class="tag tag-yellow">Streamlit</span></div>
+          <div class="proj-title">🧠 AI Knowledge Assistant</div>
+          <div class="proj-tagline">Ask questions about your own documents and get answers with source citations</div>
+        </div>
+        <div class="project-body">
+          <div class="proj-grid">
+            <div><div class="proj-sec-label">What I Built</div><ul class="proj-list"><li>Loaded PDF, TXT and Markdown files and split them into overlapping chunks</li><li>Indexed chunks as SentenceTransformers embeddings in a FAISS vector store</li><li>Built retrieval-augmented answers that cite document, page and chunk</li><li>Added a Streamlit web app, a command-line tool and unit tests</li></ul></div>
+            <div><div class="proj-sec-label">Technologies Used</div><div class="tech-cluster"><span class="tag tag-blue">Python</span><span class="tag tag-green">FAISS</span><span class="tag tag-purple">PyTorch</span><span class="tag tag-yellow">Streamlit</span></div>
+              <div class="proj-sec-label">Key Outcomes</div><div class="outcome-box"><ul class="proj-list"><li>Every answer is traceable to its source passage</li><li>Works from the browser or the terminal</li></ul></div></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <a href="https://github.com/jaishdahiya6-del/ai_knowledge_assistant" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" style="margin-top:24px">
+        <div class="project-header">
+          <div class="proj-tags"><span class="tag tag-blue">Python</span><span class="tag tag-red">Anomaly Detection</span><span class="tag tag-yellow">Streamlit</span><span class="tag tag-green">SQLite</span></div>
+          <div class="proj-title">🛡️ Cybersecurity Anomaly Detector</div>
+          <div class="proj-tagline">A SOC-style dashboard that flags suspicious activity and explains why</div>
+        </div>
+        <div class="project-body">
+          <div class="proj-grid">
+            <div><div class="proj-sec-label">What I Built</div><ul class="proj-list"><li>Compared Isolation Forest, Local Outlier Factor and One-Class SVM, with automatic best-model selection</li><li>Combined model scores and security indicators into a 0–100 risk score with LOW to CRITICAL alerts</li><li>Gave every flagged event reason codes and feature-contribution explanations</li><li>Built dashboards for investigation, analytics and simulated live monitoring</li></ul></div>
+            <div><div class="proj-sec-label">Technologies Used</div><div class="tech-cluster"><span class="tag tag-blue">Python</span><span class="tag tag-purple">Scikit-learn</span><span class="tag tag-yellow">Streamlit</span><span class="tag tag-green">SQLite</span></div>
+              <div class="proj-sec-label">Key Outcomes</div><div class="outcome-box"><ul class="proj-list"><li>Explainable, prioritized alert stream instead of a black box</li><li>Reproducible synthetic data generator for demos</li></ul></div></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <a href="https://github.com/jaishdahiya6-del/cybersecurity-anomaly-detector" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" style="margin-top:24px">
+        <div class="project-header">
+          <div class="proj-tags"><span class="tag tag-blue">Python</span><span class="tag tag-purple">Machine Learning</span><span class="tag tag-green">APIs</span><span class="tag tag-yellow">Streamlit</span></div>
+          <div class="proj-title">📈 Market Intelligence Analyzer</div>
+          <div class="proj-tagline">A research dashboard for stocks and crypto, built with honest data handling</div>
+        </div>
+        <div class="project-body">
+          <div class="proj-grid">
+            <div><div class="proj-sec-label">What I Built</div><ul class="proj-list"><li>Computed RSI, MACD, Bollinger Bands and ATR on live market data</li><li>Forecast returns with Random Forest and Gradient Boosting on past-only features, with uncertainty ranges</li><li>Produced BUY / SELL / HOLD research signals with news sentiment</li><li>Ran cost-aware backtests against buy-and-hold. Paper trading only, never fake data</li></ul></div>
+            <div><div class="proj-sec-label">Technologies Used</div><div class="tech-cluster"><span class="tag tag-blue">Python</span><span class="tag tag-yellow">Streamlit</span><span class="tag tag-green">Alpha Vantage</span><span class="tag tag-purple">CoinGecko</span></div>
+              <div class="proj-sec-label">Key Outcomes</div><div class="outcome-box"><ul class="proj-list"><li>Forecasts that fall back to the naive baseline when the model has no skill</li><li>Downloadable reports with a data freshness banner</li></ul></div></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <a href="https://github.com/jaishdahiya6-del/market-intelligence-analyzer" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" style="margin-top:24px">
+        <div class="project-header">
+          <div class="proj-tags"><span class="tag tag-blue">Python</span><span class="tag tag-purple">Machine Learning</span><span class="tag tag-green">SHAP</span><span class="tag tag-yellow">Streamlit</span></div>
+          <div class="proj-title">🏍️ Bike Analytics &amp; AI Intelligence</div>
+          <div class="proj-tagline">An end-to-end study of the two-wheeler market, from messy data to a recommender</div>
+        </div>
+        <div class="project-body">
+          <div class="proj-grid">
+            <div><div class="proj-sec-label">What I Built</div><ul class="proj-list"><li>Cleaned and validated a messy generated bike dataset</li><li>Engineered Performance, Efficiency, Value and Premium scores and clustered the market into segments</li><li>Predicted prices with multiple ML models and a neural network, explained with SHAP</li><li>Added a bike recommender and an interactive Streamlit dashboard</li></ul></div>
+            <div><div class="proj-sec-label">Technologies Used</div><div class="tech-cluster"><span class="tag tag-blue">Python</span><span class="tag tag-green">XGBoost</span><span class="tag tag-purple">SHAP</span><span class="tag tag-yellow">Streamlit</span></div>
+              <div class="proj-sec-label">Key Outcomes</div><div class="outcome-box"><ul class="proj-list"><li>Explainable price predictions</li><li>Recommendations matched to budget and needs</li></ul></div></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <a href="https://github.com/jaishdahiya6-del/bike-ai-intelligence" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" style="margin-top:24px">
+        <div class="project-header">
+          <div class="proj-tags"><span class="tag tag-blue">Python</span><span class="tag tag-red">Computer Vision</span><span class="tag tag-green">MediaPipe</span><span class="tag tag-yellow">Desktop App</span></div>
+          <div class="proj-title">🖐️ Gesture Control Suite</div>
+          <div class="proj-tagline">Control your computer with just a webcam and your hands</div>
+        </div>
+        <div class="project-body">
+          <div class="proj-grid">
+            <div><div class="proj-sec-label">What I Built</div><ul class="proj-list"><li>Built a virtual mouse: cursor by index finger, pinch to click, two-finger scroll</li><li>Built an air painter with colour palette, eraser, undo/redo and PNG export</li><li>Built volume control driven by thumb–index pinch distance</li><li>Used a shared module architecture so a new gesture is one new file, with a CustomTkinter dashboard</li></ul></div>
+            <div><div class="proj-sec-label">Technologies Used</div><div class="tech-cluster"><span class="tag tag-blue">Python</span><span class="tag tag-green">OpenCV</span><span class="tag tag-purple">MediaPipe</span><span class="tag tag-yellow">NumPy</span></div>
+              <div class="proj-sec-label">Key Outcomes</div><div class="outcome-box"><ul class="proj-list"><li>Real-time 21-point hand tracking</li><li>Headless logic tests that run without a camera</li></ul></div></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <a href="https://github.com/jaishdahiya6-del/GestureControlSuite" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" style="margin-top:24px">
+        <div class="project-header">
+          <div class="proj-tags"><span class="tag tag-blue">Python</span><span class="tag tag-red">YOLOv8</span><span class="tag tag-green">Computer Vision</span><span class="tag tag-yellow">Streamlit</span></div>
+          <div class="proj-title">🎯 AI Object Detector</div>
+          <div class="proj-tagline">Real-time object detection with YOLOv8 on webcam, images and video</div>
+        </div>
+        <div class="project-body">
+          <div class="proj-grid">
+            <div><div class="proj-sec-label">What I Built</div><ul class="proj-list"><li>Detected objects with bounding boxes and confidence scores in real time</li><li>Offered a command-line tool, a Tkinter desktop app and a Streamlit web demo</li><li>Added bonus OpenCV modules: face, edge and motion detection</li></ul></div>
+            <div><div class="proj-sec-label">Technologies Used</div><div class="tech-cluster"><span class="tag tag-blue">Python</span><span class="tag tag-red">YOLOv8</span><span class="tag tag-purple">PyTorch</span><span class="tag tag-green">OpenCV</span></div>
+              <div class="proj-sec-label">Key Outcomes</div><div class="outcome-box"><ul class="proj-list"><li>One project, three ways to use it: terminal, desktop, browser</li></ul></div></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <a href="https://github.com/jaishdahiya6-del/AI-Object-Detector" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" style="margin-top:24px">
+        <div class="project-header">
+          <div class="proj-tags"><span class="tag tag-blue">Python</span><span class="tag tag-red">Deep Learning</span><span class="tag tag-green">LSTM</span><span class="tag tag-yellow">Time Series</span></div>
+          <div class="proj-title">🪙 Bitcoin GenAI Predictor</div>
+          <div class="proj-tagline">Bitcoin price prediction with deep learning and market sentiment</div>
+        </div>
+        <div class="project-body">
+          <div class="proj-grid">
+            <div><div class="proj-sec-label">What I Built</div><ul class="proj-list"><li>Built an LSTM deep learning model to predict Bitcoin prices</li><li>Combined price history with market sentiment indicators</li></ul></div>
+            <div><div class="proj-sec-label">Technologies Used</div><div class="tech-cluster"><span class="tag tag-blue">Python</span><span class="tag tag-purple">TensorFlow</span><span class="tag tag-green">LSTM</span></div>
+              <div class="proj-sec-label">Key Outcomes</div><div class="outcome-box"><ul class="proj-list"><li>A deep learning approach to time-series price forecasting</li></ul></div></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <a href="https://github.com/jaishdahiya6-del/bitcoin-genai-predictor" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" style="margin-top:24px">
+        <div class="project-header">
+          <div class="proj-tags"><span class="tag tag-blue">Python</span><span class="tag tag-green">EDA</span><span class="tag tag-purple">Pandas</span><span class="tag tag-yellow">Seaborn</span></div>
+          <div class="proj-title">🛒 Amazon Sales Analysis</div>
+          <div class="proj-tagline">A Python pipeline that turns a product catalog into sales insights</div>
+        </div>
+        <div class="project-body">
+          <div class="proj-grid">
+            <div><div class="proj-sec-label">What I Built</div><ul class="proj-list"><li>Cleaned a raw Amazon product catalog: prices, names and categories</li><li>Generated a realistic 5,000-order simulated dataset covering 2022 to 2024</li><li>Auto-generated charts for category sales, trends, year-over-year growth, regions and customer segments</li><li>Printed KPI summaries from the command line</li></ul></div>
+            <div><div class="proj-sec-label">Technologies Used</div><div class="tech-cluster"><span class="tag tag-blue">Python</span><span class="tag tag-green">Pandas</span><span class="tag tag-purple">Seaborn</span><span class="tag tag-yellow">Matplotlib</span></div>
+              <div class="proj-sec-label">Key Outcomes</div><div class="outcome-box"><ul class="proj-list"><li>Repeatable pipeline from raw data to insights</li><li>Clear view of top categories and regions</li></ul></div></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <a href="https://github.com/jaishdahiya6-del/amazon-sales-analysis" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">💻 View Code</a>
           </div>
         </div>
       </div>
